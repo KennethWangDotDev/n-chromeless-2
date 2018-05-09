@@ -423,7 +423,7 @@ export async function screenshot(client: Client): Promise<string> {
 
   const screenshot = await Page.captureScreenshot({ format: 'png', fromSurface: true })
 
-  return screenshot
+  return screenshot.data
 }
 
 export async function html(client: Client): Promise<string> {

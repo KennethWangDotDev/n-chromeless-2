@@ -560,7 +560,7 @@ var LocalRuntime = /** @class */ (function () {
                         if (!(process.env['CHROMELESS_S3_BUCKET_NAME'] &&
                             process.env['CHROMELESS_S3_BUCKET_URL'])) return [3 /*break*/, 3];
                         if (data) {
-                            return [2 /*return*/, data];
+                            return [2 /*return*/, '123'];
                         }
                         s3Path = cuid() + ".png";
                         s3 = new AWS.S3();

@@ -624,7 +624,7 @@ function screenshot(client) {
                     return [4 /*yield*/, Page.captureScreenshot({ format: 'png', fromSurface: true })];
                 case 1:
                     screenshot = _a.sent();
-                    return [2 /*return*/, screenshot];
+                    return [2 /*return*/, screenshot.data];
             }
         });
     });
