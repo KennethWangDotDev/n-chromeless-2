@@ -163,6 +163,7 @@ export default class RemoteChrome implements Chrome {
           if (this.TOPIC_RESPONSE === topic) {
             const message = buffer.toString()
             const result = JSON.parse(message) as RemoteResult
+            console.log(result)
 
             if (result.error) {
               reject(result.error)

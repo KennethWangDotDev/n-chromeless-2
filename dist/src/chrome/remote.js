@@ -187,6 +187,7 @@ var RemoteChrome = /** @class */ (function () {
                                     if (_this.TOPIC_RESPONSE === topic) {
                                         var message = buffer.toString();
                                         var result = JSON.parse(message);
+                                        console.log(result);
                                         if (result.error) {
                                             reject(result.error);
                                         }
