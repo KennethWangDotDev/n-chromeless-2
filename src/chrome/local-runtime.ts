@@ -364,8 +364,9 @@ export default class LocalRuntime {
       process.env['CHROMELESS_S3_BUCKET_NAME'] &&
       process.env['CHROMELESS_S3_BUCKET_URL']
     ) {
+      console.log(data)
       if (data) {
-        return '123'
+        return data
       }
       const s3Path = `${cuid()}.png`
       const s3 = new AWS.S3()
