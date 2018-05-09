@@ -421,7 +421,7 @@ export async function clearCookies(client: Client): Promise<void> {
 export async function screenshot(client: Client): Promise<string> {
   const { Page } = client
 
-  const screenshot = await Page.captureScreenshot({ format: 'png' })
+  const screenshot = await Page.captureScreenshot({ format: 'png', fromSurface: true })
 
   return screenshot.data
 }
