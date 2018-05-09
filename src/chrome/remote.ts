@@ -154,14 +154,17 @@ export default class RemoteChrome implements Chrome {
     await this.connectionPromise
 
     if (this.options.debug) {
-      console.log(`Running remotely: ${JSON.stringify(command)}`)
+      console.log(`Running remotely!: ${JSON.stringify(command)}`)
     }
-
+    console.log('!')
     const promise = new Promise<T>((resolve, reject) => {
       this.channel.subscribe(this.TOPIC_RESPONSE, () => {
         this.channel.on('message', (topic, buffer) => {
           if (this.TOPIC_RESPONSE === topic) {
+            console.log('@')
+            console.log(topic)
             const message = buffer.toString()
+            console.log(message)
             const result = JSON.parse(message) as RemoteResult
             console.log(result)
 
@@ -177,7 +180,7 @@ export default class RemoteChrome implements Chrome {
         this.channel.publish(this.TOPIC_REQUEST, JSON.stringify(command))
       })
     })
-
+    console.log('#')
     return promise
   }
 

@@ -179,13 +179,17 @@ var RemoteChrome = /** @class */ (function () {
                         // wait until lambda connection is established
                         _a.sent();
                         if (this.options.debug) {
-                            console.log("Running remotely: " + JSON.stringify(command));
+                            console.log("Running remotely!: " + JSON.stringify(command));
                         }
+                        console.log('!');
                         promise = new Promise(function (resolve, reject) {
                             _this.channel.subscribe(_this.TOPIC_RESPONSE, function () {
                                 _this.channel.on('message', function (topic, buffer) {
                                     if (_this.TOPIC_RESPONSE === topic) {
+                                        console.log('@');
+                                        console.log(topic);
                                         var message = buffer.toString();
+                                        console.log(message);
                                         var result = JSON.parse(message);
                                         console.log(result);
                                         if (result.error) {
@@ -202,6 +206,7 @@ var RemoteChrome = /** @class */ (function () {
                                 _this.channel.publish(_this.TOPIC_REQUEST, JSON.stringify(command));
                             });
                         });
+                        console.log('#');
                         return [2 /*return*/, promise];
                 }
             });
