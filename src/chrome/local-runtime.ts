@@ -366,7 +366,7 @@ export default class LocalRuntime {
       process.env['CHROMELESS_S3_BUCKET_URL']
     ) {
       console.log('3')
-      console.log(data)
+      console.log(typeof(data))
       console.log('4')
       if (data) {
         console.log('5')

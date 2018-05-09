@@ -561,7 +561,7 @@ var LocalRuntime = /** @class */ (function () {
                         if (!(process.env['CHROMELESS_S3_BUCKET_NAME'] &&
                             process.env['CHROMELESS_S3_BUCKET_URL'])) return [3 /*break*/, 3];
                         console.log('3');
-                        console.log(data);
+                        console.log(typeof (data));
                         console.log('4');
                         if (data) {
                             console.log('5');
