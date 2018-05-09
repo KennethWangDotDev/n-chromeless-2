@@ -357,17 +357,22 @@ export default class LocalRuntime {
 
   // Returns the S3 url or local file path
   async returnScreenshot(): Promise<string> {
+    console.log('1')
     const data = await screenshot(this.client)
-
+    console.log('2')
     // check if S3 configured
     if (
       process.env['CHROMELESS_S3_BUCKET_NAME'] &&
       process.env['CHROMELESS_S3_BUCKET_URL']
     ) {
+      console.log('3')
       console.log(data)
+      console.log('4')
       if (data) {
+        console.log('5')
         return data
       }
+      console.log('6')
       const s3Path = `${cuid()}.png`
       const s3 = new AWS.S3()
       await s3
