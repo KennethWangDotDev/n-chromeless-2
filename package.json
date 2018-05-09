@@ -38,7 +38,7 @@
     "aws-sdk": "^2.90.0",
     "bluebird": "^3.5.0",
     "chrome-launcher": "^0.4.0",
-    "chrome-remote-interface": "^0.24.2",
+    "chrome-remote-interface": "^0.25.5",
     "cuid": "^1.3.8",
     "form-data": "^2.1.4",
     "got": "^7.1.0",
