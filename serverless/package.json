@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "aws4": "^1.6.0",
-    "chromeless": "kennethwang14/n-chromeless-2",
+    "chromeless": "^1.2.0",
     "cuid": "^1.3.8",
     "mqtt": "^2.11.0",
     "source-map-support": "^0.4.15"

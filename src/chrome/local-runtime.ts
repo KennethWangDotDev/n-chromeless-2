@@ -364,7 +364,22 @@ export default class LocalRuntime {
       process.env['CHROMELESS_S3_BUCKET_NAME'] &&
       process.env['CHROMELESS_S3_BUCKET_URL']
     ) {
-      return data
+      if (data) {
+        return data
+      }
+      const s3Path = `${cuid()}.png`
+      const s3 = new AWS.S3()
+      await s3
+        .putObject({
+          Bucket: process.env['CHROMELESS_S3_BUCKET_NAME'],
+          Key: s3Path,
+          ContentType: 'image/png',
+          ACL: 'public-read',
+          Body: new Buffer(data, 'base64'),
+        })
+        .promise()
+
+      return `https://${process.env['CHROMELESS_S3_BUCKET_URL']}/${s3Path}`
     } else {
       // write to `${os.tmpdir()}` instead
       const filePath = path.join(os.tmpdir(), `${cuid()}.png`)
