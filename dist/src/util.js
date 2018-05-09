@@ -621,10 +621,10 @@ function screenshot(client) {
             switch (_a.label) {
                 case 0:
                     Page = client.Page;
-                    return [4 /*yield*/, Page.captureScreenshot({ format: 'png' })];
+                    return [4 /*yield*/, Page.captureScreenshot({ format: 'png', fromSurface: true })];
                 case 1:
                     screenshot = _a.sent();
-                    return [2 /*return*/, screenshot.data];
+                    return [2 /*return*/, screenshot];
             }
         });
     });
