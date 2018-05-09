@@ -357,7 +357,21 @@ export default class LocalRuntime {
 
   // Returns the S3 url or local file path
   async returnScreenshot(): Promise<string> {
-    return await screenshot(this.client)
+    const data = await screenshot(this.client)
+
+    // check if S3 configured
+    if (
+      process.env['CHROMELESS_S3_BUCKET_NAME'] &&
+      process.env['CHROMELESS_S3_BUCKET_URL']
+    ) {
+      return data
+    } else {
+      // write to `${os.tmpdir()}` instead
+      const filePath = path.join(os.tmpdir(), `${cuid()}.png`)
+      fs.writeFileSync(filePath, Buffer.from(data, 'base64'))
+
+      return filePath
+    }
   }
 
   async returnHtml(): Promise<string> {
